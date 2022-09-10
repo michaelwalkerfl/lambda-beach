@@ -41,12 +41,12 @@ def handler(event, context):
     if saturday in rain:
         saturday_status = 'is raining, good time to read a book indoors.'
     else:
-        saturday_status = 'is beach day!'
+        saturday_status = 'is a beach day!'
     if sunday in rain:
         sunday_status = 'is raining, good time to read a book indoors.'
     else:
-        sunday_status = 'is beach day!'
-    msg = f'Your weekend forecast: \nSaturday: {saturday_status}\nSunday: {sunday_status}.'
+        sunday_status = 'is beach a day!'
+    msg = f'Your weekend forecast: \nSaturday {saturday_status}\nSunday {sunday_status}.'
     __send_notification_email(msg)
 
 
