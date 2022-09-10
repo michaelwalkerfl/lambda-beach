@@ -7,7 +7,7 @@
 [![CI](https://github.com/michaelwalkerfl/lambda-beach/actions/workflows/lambda.yml/badge.svg)](https://github.com/michaelwalkerfl/lambda-beach/actions/workflows/lambda.yml)
 
 
-I want to know if it's going to rain or not each weekend so I can plan to go to the beach or read a book. This application runs on `AWS Lambda`. It will check the weather for the upcoming weekend and send an email informing whether it's raining or not. Maybe I should have named this whether-the-weather. It makes use of `AWS EventBridge` for task scheduling and `AWS CloudFormation` for *Infrastruture as Code* solution to run aws lambda in container stored in the `Elastic Container Registry`.
+I want to know if it's going to rain or not each weekend so I can plan to go to the beach or read a book. This application runs on `AWS Lambda`. It will check the weather for the upcoming weekend and send an email informing whether it's raining or not. Maybe I should have named this `whether-the-weather`. It makes use of `AWS EventBridge` for task scheduling and `AWS CloudFormation` for *Infrastruture as Code* solution to run `AWS Lambda` in container stored in the `Elastic Container Registry`.
 
 ## Setting up
 
@@ -124,8 +124,3 @@ AWS Console -> CloudFormation -> Create stack -> Upload a template -> Select `la
 ![cloudformation-stack-created](readme_media/cloudformation-stack-created.png "cloudformation-stack-created")
 
 Once the stack has status of `CREATE_COMPLETE`, you can check your `AWS Lambda` to confirm the function exists (and `AWS EventBridge` associated).
-
-
-
-
-
