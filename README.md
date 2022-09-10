@@ -19,7 +19,7 @@ $ cd lambda-beach
 ```
 
 ## Go to the AWS Elastic Container Registry to create ECR container
-`aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 565567886531.dkr.ecr.us-east-2.amazonaws.com`
+`aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 5655671.dkr.ecr.us-east-2.amazonaws.com`
 
 If you receive the following error:
 ```
