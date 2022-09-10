@@ -1,11 +1,14 @@
-# Lambda Beach
+# AWS Lambda Beach
 
 
 ![python3.8](https://img.shields.io/badge/python-3.8-brightgreen.svg?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)  
+[![CI](https://github.com/michaelwalkerfl/lambda-beach/actions/workflows/lambda.yml/badge.svg)](https://github.com/michaelwalkerfl/lambda-beach/actions/workflows/lambda.yml)
+
 
 I want to know if it's going to rain or not each weekend. This application runs on AWS Lambda. It will check the weather for the upcoming weekend and send me an email informing whether it's raining or not. Maybe I should have named this whether-the-weather.
+
 ## Setting up
 
 ##### Clone the repository 
@@ -73,8 +76,32 @@ Then you need to push again
 The AWS Lambda function will not automatically update, so we update it manually
 ``aws lambda update-function-code --function-name aws-lambda-beach-lambda --image-uri 345635.dkr.ecr.us-east-2.amazonaws.com/aws-lambda-beach-ecr:latest``
 
-This is tedious to do manually, I'd suggest to automate with GitHub actions.
+This is tedious to do manually, I'd suggest to automate with GitHub actions. Make sure that you update the IAM User Policy to allow access to the lambda:UpdateFunction
 
 You will need to add secrets to your GitHub repository - see lambda.yml file.
 
+## Create rule using AWS EventBridge to act as cron task scheduler.
 
+
+## Step 1
+
+![eventbridge-rule-step-1](readme_media/eventbridge-rule-step-1.png "step-1")
+
+## Step 2
+
+![eventbridge-rule-step-2](readme_media/eventbridge-rule-step-2.png "step-2")
+
+## Step 3
+
+![eventbridge-rule-step-3](readme_media/eventbridge-rule-step-3.png "step-3")
+
+
+### Now you should see EventBridge in your AWS Lambda function overview
+
+![lambda-function-overview-with-eventbridge](readme_media/lambda-function-overview-with-eventbridge.png "lambda-function-overview-with-eventbridge")
+
+### Make sure you update the timeout setting on the lambda function, else it will spawn another job
+Console -> AWS Lambda -> Select desired function -> Configuration tab -> General Configuration -> Edit -> adjust 3 seconds to desired timeout setting
+![lambda-function-timeout-settings](readme_media/lambda-function-timeout-settings.png "lambda-function-timeout-settings")
+
+## Using AWS Cloudformation
