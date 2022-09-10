@@ -105,3 +105,13 @@ Console -> AWS Lambda -> Select desired function -> Configuration tab -> General
 ![lambda-function-timeout-settings](readme_media/lambda-function-timeout-settings.png "lambda-function-timeout-settings")
 
 ## Using AWS Cloudformation
+### Create required role. 
+*AWS Console -> IAM -> Roles -> Create role -> Select Lambda -> Next*
+Search `AWSLambdaBasicExecutionRole`, select and click next.
+Give the role a name, then save. Click into the role, copy the arn then update `lambda_cloudformation_template`.
+
+
+### Create stack
+*AWS Console -> CloudFormation -> Create stack -> Upload a template -> Select `lambda_cloudformation_template.yaml` -> input a stack name -> next -> create stack.
+![create-cloudformation-stack](readme_media/create-cloudformation-stack.png "create-cloudformation-stack")
+
